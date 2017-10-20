@@ -12,7 +12,18 @@ public class LmsController {
 	public String index() {
 		return "index";
 	}
-	
+
+
+	@RequestMapping(value = "/photo")
+	public String photo() {
+		return "./photo/index";
+	}
+
+	@RequestMapping(value = "/profile")
+	public String profile() {
+		return "./profile/index";
+	}
+
 	@ResponseBody
 	@RequestMapping(value = "/test")
 	public String test() {

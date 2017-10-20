@@ -1,4 +1,9 @@
 target/
+src/main/resources/node_modules/
+src/main/resources/.next/
+src/main/resources/out/
+src/main/resources/static/
+src/main/resources/templates/
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
