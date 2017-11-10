@@ -3,12 +3,14 @@ package haaga.lms.lms;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Bean;
 
 import haaga.lms.lms.domain.User;
 import haaga.lms.lms.domain.UserRepository;
 
 @SpringBootApplication
+@EnableOAuth2Sso
 public class LmsApplication {
 
 	public static void main(String[] args) {
