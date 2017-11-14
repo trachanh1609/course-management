@@ -77,10 +77,12 @@ public class Course{
 		
 	}
 	
-	public Course(String coursename, String privacy, String price) {
+	public Course(String coursename, String privacy, String description, String location, String price) {
 		super();
 		this.coursename = coursename;
 		this.privacy = privacy;
+		this.description = description;
+		this.location = location;
 		this.price = price;
 	}
 }
