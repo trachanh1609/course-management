@@ -6,7 +6,7 @@ import axios from 'axios';
 //   baseURL: 'http://localhost:8080',
 //   timeout: 1000
 // });
-// axios.defaults.baseURL = 'http://localhost:8080';
+axios.defaults.baseURL = 'http://localhost:8080';
 
 export default class extends React.Component{
 
@@ -14,12 +14,13 @@ export default class extends React.Component{
     super(props);
 
     this.state = {
-      courses: []
+      courses: [],
+      firstCourseName: ""
     };
   }
 
   componentDidMount() {
-    // this._fetchComments();
+    this._fetchComments();
   }
 
   render() {
@@ -27,21 +28,21 @@ export default class extends React.Component{
     return (
       <div>
 
-          this.state.courses
+          {this.state.firstCourseName}
 
       </div>
     )
   }
 
   _fetchComments() {
-    // axios.get("/api/courses/")
-    //   .then(res => {
-    //     const courses = res.data._embedded.courses;
-    //     this.setState({ courses });
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
+    axios.get("/api/courses/")
+      .then(res => {
+        const firstCourseName = res.data._embedded.courses[0].description;
+        this.setState({ firstCourseName });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
   }
 
