@@ -4,7 +4,8 @@ module.exports = {
       '../templates/': { page: '/' },
       '../templates/photo': { page: '/photo' },
       '../templates/profile': { page: '/profile' },
-      '../templates/login': { page: '/login' }
+      '../templates/login': { page: '/login' },
+      '../templates/dashboard': { page: '/dashboard'}
     }
   }
 }

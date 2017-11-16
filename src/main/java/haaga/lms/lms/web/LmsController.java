@@ -28,6 +28,11 @@ public class LmsController {
 	public String login() {
 		return "./login/index";
 	}
+	
+	@RequestMapping(value = "/dashboard")
+	public String dashboard() {
+		return "./dashboard/index";
+	}
 
 	@ResponseBody
 	@RequestMapping(value = "/test")
