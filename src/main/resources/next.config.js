@@ -3,7 +3,8 @@ module.exports = {
     return {
       '../templates/': { page: '/' },
       '../templates/photo': { page: '/photo' },
-      '../templates/profile': { page: '/profile' }
+      '../templates/profile': { page: '/profile' },
+      '../templates/login': { page: '/login' }
     }
   }
 }

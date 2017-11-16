@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next",
-    "build": "next build && next export && mv out/_next static",
+    "build": "next build && next export && rm -R static/_next && mv out/_next static",
     "start": "next start"
   },
   "author": "",

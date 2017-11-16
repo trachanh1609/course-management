@@ -23,6 +23,11 @@ public class LmsController {
 	public String profile() {
 		return "./profile/index";
 	}
+	
+	@RequestMapping(value = "/login")
+	public String login() {
+		return "./login/index";
+	}
 
 	@ResponseBody
 	@RequestMapping(value = "/test")
