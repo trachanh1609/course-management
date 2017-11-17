@@ -2,6 +2,7 @@ import React from 'react';
 // import Router from 'next/router';
 import axios from 'axios';
 import Button from 'material-ui/Button';
+import CourseList from '../components/CourseList'
 
 axios.defaults.baseURL = 'http://localhost:8080';
 
@@ -22,11 +23,18 @@ export default class extends React.Component{
 
   render() {
     return (
-      <div>
+      <div className="wrapper">
           <h3>Homepage</h3>
-            <Button>
-              Hello World
-            </Button>
+          <Button>
+            Log In
+          </Button>
+          <CourseList courses={this.state.courses} />
+
+            <style jsx>{`
+              .wrapper {
+                background-color: #eeeeee;
+              }
+            `}</style>
 
       </div>
     )
