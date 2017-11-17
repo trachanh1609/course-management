@@ -1,11 +1,8 @@
 import React from 'react';
-import Router from 'next/router';
+// import Router from 'next/router';
 import axios from 'axios';
+import Button from 'material-ui/Button';
 
-// axios.create({
-//   baseURL: 'http://localhost:8080',
-//   timeout: 1000
-// });
 axios.defaults.baseURL = 'http://localhost:8080';
 
 export default class extends React.Component{
@@ -20,25 +17,26 @@ export default class extends React.Component{
   }
 
   componentDidMount() {
-    this._fetchComments();
+    this._fetchCourses();
   }
 
   render() {
-    const { url, photos } = this.props
     return (
       <div>
           <h3>Homepage</h3>
-          {this.state.firstCourseName}
+            <Button>
+              Hello World
+            </Button>
 
       </div>
     )
   }
 
-  _fetchComments() {
+  _fetchCourses() {
     axios.get("/api/courses/")
       .then(res => {
-        const firstCourseName = res.data._embedded.courses[0].description;
-        this.setState({ firstCourseName });
+        const courses = res.data._embedded.courses;
+        this.setState({ courses });
       })
       .catch(function (error) {
         console.log(error);
