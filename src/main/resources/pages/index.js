@@ -27,7 +27,7 @@ export default class extends React.Component{
     const { url, photos } = this.props
     return (
       <div>
-
+          <h3>Homepage</h3>
           {this.state.firstCourseName}
 
       </div>
