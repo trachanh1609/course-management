@@ -19,23 +19,20 @@ public class LmsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(LmsApplication.class, args);
 	}
-	
+
 	@Bean
 	public CommandLineRunner testDatabase(UserRepository userrepo, CourseRepository courserepo ) {
-		return (args) -> {			
-				
+		return (args) -> {
+
 			// Create users: admin/admin user/user
 			User user1 = new User("user", "$2a$06$3jYRJrg0ghaaypjZ/.g4SethoeA51ph3UD4kZi9oPkeMTpjKU5uo6", "USER");
 			User user2 = new User("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ADMIN");
 			userrepo.save(user1);
 			userrepo.save(user2);
-			
-			Course course1 = new Course("HTML", "public", "Basic HTML", "Pasila", "50e");
-			courserepo.save(course1);
-			Course course2 = new Course("Basic Javascript", "public", "Basic Javascript", "Helsinki Kirjasto 10", "50e");
-			courserepo.save(course2);
-			Course course3 = new Course("Guitar for beginners", "public", "Guitar classic", "Sello", "100e");
-			courserepo.save(course3);
+
+			courserepo.save(new Course("HTML", "public", "Basic HTML", "Pasila", "50e") );
+			courserepo.save(new Course("Basic Javascript", "public", "Basic Javascript", "Helsinki Kirjasto 10", "50e") );
+			courserepo.save(new Course("Guitar for beginners", "public", "Guitar classic", "Sello", "100e") );
 
 		};
 	}
