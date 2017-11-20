@@ -18,7 +18,7 @@ export default class CourseList extends React.Component{
 
   _getCourses() {
     return this.props.courses.map((course) => {
-      return <GridListTile key={course.coursename}>
+      return <GridListTile key={course.id}>
                <Course course={course}></Course>
              </GridListTile>
     });

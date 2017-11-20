@@ -9,11 +9,11 @@ import javax.persistence.Id;
 public class Course{
 
 	public Long getId() {
-		return id;
+		return Id;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setId(Long Id) {
+		this.Id = Id;
 	}
 
 	public String getCoursename() {
@@ -56,7 +56,8 @@ public class Course{
 		this.price = price;
 	}
 
-	private @Id @GeneratedValue Long id;
+	@Id @GeneratedValue @Column(name="COURSE_ID", nullable = false, unique = true) 
+	private Long Id;
 	
 	@Column(name = "coursename", nullable = false, unique = false)	
 	private String coursename;
