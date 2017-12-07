@@ -1,10 +1,17 @@
 package haaga.lms.lms.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+//import javax.persistence.CascadeType;
+//import javax.persistence.Column;
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.GenerationType;
+//import javax.persistence.Id;
+//import javax.persistence.ManyToMany;
+
+import javax.persistence.*;
+import java.util.Set;
+import haaga.lms.lms.domain.Course;
+
 
 @Entity
 public class User {
@@ -23,6 +30,25 @@ public class User {
 	@Column(name = "email", nullable = true)
 	private String email;
 	
+//	@Column(name = "courses", nullable = true)
+	
+	
+	@ManyToMany(cascade = CascadeType.MERGE)
+//    @JoinTable(name = "user_course", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"))
+	@JoinTable(
+		    name = "user_course", 
+		    joinColumns = { @JoinColumn(name = "id") }, 
+		    inverseJoinColumns = { @JoinColumn(name = "courseid") })
+	private Set<Course> courses;
+	
+	public Set<Course> getCourses() {
+        return courses;
+    }
+	
+	public void setCourses(Set<Course> courses) {
+        this.courses = courses;
+    }
+	
 	public User() {
     }
 	
@@ -32,6 +58,11 @@ public class User {
 		this.passwordHash = passwordHash;
 		this.role = role;
 	}
+	
+	public User(String username, Set<Course> courses){
+        this.username = username;
+        this.courses = courses;
+    }
 	
 	public String getEmail() {
 		return email;

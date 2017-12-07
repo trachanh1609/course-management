@@ -1,10 +1,20 @@
 package haaga.lms.lms;
 
+//import java.util.Properties;
+//
+//import javax.activation.DataSource;
+//import javax.persistence.EntityManagerFactory;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
+//import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Bean;
+//import org.springframework.orm.jpa.JpaTransactionManager;
+//import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+//import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+//import org.springframework.transaction.PlatformTransactionManager;
 
 import haaga.lms.lms.domain.User;
 import haaga.lms.lms.domain.UserRepository;
@@ -15,13 +25,19 @@ import haaga.lms.lms.domain.CourseRepository;
 @SpringBootApplication
 //@EnableOAuth2Sso
 public class LmsApplication {
+	
+	@Autowired
+    private UserRepository userrepo;
+
+    @Autowired
+    private CourseRepository courserepo;
 
 	public static void main(String[] args) {
 		SpringApplication.run(LmsApplication.class, args);
 	}
 
 	@Bean
-	public CommandLineRunner testDatabase(UserRepository userrepo, CourseRepository courserepo ) {
+	public CommandLineRunner testDatabase() {
 		return (args) -> {
 
 			// Create users: admin/admin user/user
@@ -36,5 +52,33 @@ public class LmsApplication {
 
 		};
 	}
+	
+//	@Bean
+//	@Autowired
+//	public EntityManagerFactory entityManagerFactory(DataSource dataSource) {
+//	    HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+//	    vendorAdapter.setGenerateDdl(true);
+//
+//	    Properties jpaProperties = new Properties();
+////	    jpaProperties.setProperty("hibernate.show_sql", showsql);
+////	    jpaProperties.setProperty("hibernate.dialect", dialect);
+//
+//	    LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
+//	    localContainerEntityManagerFactoryBean.setJpaVendorAdapter(vendorAdapter);
+//	    localContainerEntityManagerFactoryBean.setPackagesToScan("your packages....");
+////	    localContainerEntityManagerFactoryBean.setDataSource(dataSource);
+//	    localContainerEntityManagerFactoryBean.setJpaProperties(jpaProperties);
+//	    localContainerEntityManagerFactoryBean.afterPropertiesSet();
+//
+//	    return localContainerEntityManagerFactoryBean.getObject();
+//	}
+//
+//	@Bean
+//	@Autowired
+//	public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
+//	    JpaTransactionManager jpaTransactionManager = new JpaTransactionManager();
+//	    jpaTransactionManager.setEntityManagerFactory(entityManagerFactory);
+//	    return jpaTransactionManager;
+//	}
 
 }

@@ -1,9 +1,13 @@
 package haaga.lms.lms.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+//import javax.persistence.Column;
+//import javax.persistence.Entity;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.Id;
+
+import javax.persistence.*;
+import java.util.Set;
+import haaga.lms.lms.domain.User;
 
 @Entity
 public class Course{
@@ -73,7 +77,26 @@ public class Course{
 
 	@Column(name = "price", nullable = true)
 	private String price;
+	
+//	@Column(name = "users", nullable = true)
+	
+	
+	@ManyToMany(mappedBy = "courses")
+	private Set<User> users;
+	
+    public Set<User> getUsers() {
+        return users;
+    }
 
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
+    public Course(String coursename, Set<User> users){
+        this.coursename = coursename;
+        this.users = users;
+    }
+    
 	public Course() {
 		
 	}
