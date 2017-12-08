@@ -25,7 +25,7 @@ export default class extends React.Component{
     return (
       <div className="wrapper">
           <h3>Homepage</h3>
-          <Button>
+          <Button href="/login" raised color="accent">
             Log In
           </Button>
           <CourseList courses={this.state.courses} />

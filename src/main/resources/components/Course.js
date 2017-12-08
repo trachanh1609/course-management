@@ -3,9 +3,12 @@ import React from 'react'
 import Card, { CardActions, CardContent } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
+import Send from 'material-ui-icons/Send';
+
 
 
 export default class Course extends React.Component{
+
   render() {
     return (
 
@@ -22,7 +25,10 @@ export default class Course extends React.Component{
               </Typography>
             </CardContent>
             <CardActions>
-              <Button dense>Learn More</Button>
+              <Button href="/dashboard" raised color="primary">
+                Enroll
+              </Button>
+
             </CardActions>
           </Card>
 
